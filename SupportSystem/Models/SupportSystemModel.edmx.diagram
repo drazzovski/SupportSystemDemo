@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea052fe25ced4a589204d6244b169084" Name="Diagram1">
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.AspNetUsers" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemCategory" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemComments" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemMain" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemPriority" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemSection" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemSeverity" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemStatuses" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupportSystemPraksaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemComments_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemPriority" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSection" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSeverity" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemComments_SupportSystemMain" />
+        <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSection1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

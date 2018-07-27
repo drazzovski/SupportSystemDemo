@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div id="cont" class="container-fluid">
+    <div class="row">
+        <div class="pull-right">
+            <button id="viewSugg" type="button" class="btn btn-primary">Add Suggestions</button>
+            <button id="showClosed" type="button" class="btn btn-primary">Show Closed</button>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div id="dataGrid"></div>
+</div>
+<div class="comIndex" id="commentArea">
+    <div id="komentari"></div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/homeIndex.js"></script>
+    <script src="~/Scripts/homeComments.js"></script>
+}

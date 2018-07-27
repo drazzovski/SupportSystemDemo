@@ -1,0 +1,138 @@
+﻿@model SupportSystem.Models.SupportSystemMain
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SupportSystemMain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResolvedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResolvedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Steps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Steps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcceptedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemCategory.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemPriority.PriorityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemPriority.PriorityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemSection.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemSection.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemSeverity.SeverityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemSeverity.SeverityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemStatuses.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemStatuses.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupportSystemSection1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupportSystemSection1.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

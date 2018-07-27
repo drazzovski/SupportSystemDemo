@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Create Section";
+}
+<div id="CreateBar" class="row">
+    <button id="btnSectionList" type="button" class="btn btn-primary">Back To List</button>
+    <button id="btnSaveSection" type="button" class="btn btn-primary">Save Section</button>
+</div>
+<div class="row">
+    <div id="createForm" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+            <label for="sectionName">Section Name</label>
+            <input type="text" class="form-control input-sm" id="sectionName">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control input-sm" rows="5" id="description"></textarea>
+        </div>      
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="~/Scripts/systemSectionCreate.js"></script>
+}

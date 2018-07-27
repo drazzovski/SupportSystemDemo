@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Add Suggestion";
+}
+
+<div id="CreateBar" class="row">
+    <button id="btnMainList" type="button" class="btn btn-primary">Back To List</button>
+    <button id="btnSaveSugg" type="button" class="btn btn-primary">Save Suggestion</button>
+
+    @*<button id="btnVal" type="button" class="btn btn-primary">Validacije</button>*@
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <form id="createForm">
+        <div class="form-group">
+            <label for="suggestion">Suggestion No.</label>
+            <input type="text" class="form-control input-sm" id="suggestion">
+        </div>
+        <div class="form-group">
+            <label for="createdBy">Created By</label>
+            <input type="text" class="form-control input-sm" id="createdBy">
+        </div>
+        <div class="form-group">
+            <label for="createdOn">Created On</label>
+            <div id="createdOn"></div> 
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <br />
+            <select id="status"></select>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <br />
+            <select id="category"></select>
+        </div>
+        <div class="form-group">
+            <label for="sysSection">System Section</label>
+            <br />
+            <select id="sysSection"></select>
+        </div>
+        <div class="form-group">
+            <label for="severity">Severity</label>
+            <br />
+            <select id="severity"></select>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control input-sm" id="title">
+        </div>
+        <div class="form-group">
+            <label for="steps">Steps To Reproduce</label>
+            <textarea class="form-control input-sm" rows="5" id="steps"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <br />
+            <select id="priority"></select>
+        </div>
+        <div class="form-group">
+            <label for="acceptedOn">Accepted On</label>
+            <div id="acceptedOn"></div>
+        </div>
+        <div class="form-group">
+            <label for="dueOn">Due Date</label>
+            <div id="dueOn"></div>
+        </div>
+        <div class="form-group">
+            <label for="resolvedOn">Resloved On</label>
+            <div id="resolvedOn"></div>
+        </div>
+        <div class="form-group">
+            <label for="notes">Resolve Notes</label>
+            <textarea class="form-control input-sm" rows="5" id="notes"></textarea>
+        </div>
+    </form>    
+</div>
+<div id="commentArea" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div id="komentari" class="row">
+        <label class="inline">Comments:</label>
+        <a href="#" class="btn btn-success" id="addComment">Add Comment</a>
+    </div>
+</div>
+
+
+@section Scripts
+{        
+        <script src="~/Scripts/homeCreate.js"></script>
+        <script src="~/Scripts/homeDropdowns.js"></script>
+        <script src="~/Scripts/homeComments.js"></script>
+        <script src="~/Scripts/homeValidacije.js"></script>
+}

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+}
+<div id="cont" class="container-fluid">
+    <div class="row">
+        <div class="pull-right">
+            <button id="btnCreateUser" type="button" class="btn btn-primary">Create New User</button>
+            <button id="btnDeletedUsers" type="button" class="btn btn-primary">Deleted</button>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div id="usersGrid"></div>
+</div>
+@section Scripts
+{
+    <script src="~/Scripts/usersHome.js"></script>
+}

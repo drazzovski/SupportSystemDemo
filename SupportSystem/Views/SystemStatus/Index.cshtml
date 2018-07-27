@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Support System Statuses List";
+}
+
+<div id="cont" class="container-fluid">
+    <div class="row">
+        <div class="pull-right">
+            <button id="btnNewStatus" type="button" class="btn btn-primary">Create New</button>
+            <button id="btnDeletedStatus" type="button" class="btn btn-primary">Deleted</button>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div id="statusGrid"></div>
+</div>
+@section Scripts
+{
+    <script src="~/Scripts/systemStatusHome.js"></script>
+}
+

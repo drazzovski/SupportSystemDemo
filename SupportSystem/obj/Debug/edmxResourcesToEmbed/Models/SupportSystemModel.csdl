@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupportSystemPraksaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="SupportSystemComments" Relationship="Self.FK_SupportSystemComments_AspNetUsers" FromRole="AspNetUsers" ToRole="SupportSystemComments" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_AspNetUsers" FromRole="AspNetUsers" ToRole="SupportSystemMain" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SupportSystemCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_SupportSystemCategory" FromRole="SupportSystemCategory" ToRole="SupportSystemMain" />
+  </EntityType>
+  <EntityType Name="SupportSystemComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="IdUser" Type="Guid" />
+    <Property Name="OnDate" Type="DateTime" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_SupportSystemComments_AspNetUsers" FromRole="SupportSystemComments" ToRole="AspNetUsers" />
+    <Property Name="IdReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdMain" Type="Guid" />
+    <NavigationProperty Name="SupportSystemMain1" Relationship="SupportSystemPraksaModel.FK_SupportSystemComments_SupportSystemMain" FromRole="SupportSystemComments" ToRole="SupportSystemMain" />
+  </EntityType>
+  <EntityType Name="SupportSystemMain">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdStatus" Type="Guid" />
+    <Property Name="IdKategorija" Type="Guid" />
+    <Property Name="IdSeverity" Type="Guid" />
+    <Property Name="IdUser" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="DueOn" Type="DateTime" Precision="3" />
+    <Property Name="ResolvedOn" Type="DateTime" Precision="3" />
+    <Property Name="IdPriority" Type="Guid" />
+    <Property Name="Steps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdSystemSection" Type="Guid" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_SupportSystemMain_AspNetUsers" FromRole="SupportSystemMain" ToRole="AspNetUsers" />
+    <NavigationProperty Name="SupportSystemCategory" Relationship="Self.FK_SupportSystemMain_SupportSystemCategory" FromRole="SupportSystemMain" ToRole="SupportSystemCategory" />
+    <NavigationProperty Name="SupportSystemPriority" Relationship="Self.FK_SupportSystemMain_SupportSystemPriority" FromRole="SupportSystemMain" ToRole="SupportSystemPriority" />
+    <NavigationProperty Name="SupportSystemSection" Relationship="Self.FK_SupportSystemMain_SupportSystemSection" FromRole="SupportSystemMain" ToRole="SupportSystemSection" />
+    <NavigationProperty Name="SupportSystemSeverity" Relationship="Self.FK_SupportSystemMain_SupportSystemSeverity" FromRole="SupportSystemMain" ToRole="SupportSystemSeverity" />
+    <NavigationProperty Name="SupportSystemStatuses" Relationship="Self.FK_SupportSystemMain_SupportSystemStatuses" FromRole="SupportSystemMain" ToRole="SupportSystemStatuses" />
+    <NavigationProperty Name="SupportSystemComments1" Relationship="SupportSystemPraksaModel.FK_SupportSystemComments_SupportSystemMain" FromRole="SupportSystemMain" ToRole="SupportSystemComments" />
+    <NavigationProperty Name="SupportSystemSection1" Relationship="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSection1" FromRole="SupportSystemMain" ToRole="SupportSystemSection" />
+    <Property Name="AcceptedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SupportSystemPriority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="PriorityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_SupportSystemPriority" FromRole="SupportSystemPriority" ToRole="SupportSystemMain" />
+  </EntityType>
+  <EntityType Name="SupportSystemSection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_SupportSystemSection" FromRole="SupportSystemSection" ToRole="SupportSystemMain" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="SupportSystemMain1" Relationship="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSection1" FromRole="SupportSystemSection" ToRole="SupportSystemMain" />
+  </EntityType>
+  <EntityType Name="SupportSystemSeverity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="SeverityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_SupportSystemSeverity" FromRole="SupportSystemSeverity" ToRole="SupportSystemMain" />
+  </EntityType>
+  <EntityType Name="SupportSystemStatuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SupportSystemMain" Relationship="Self.FK_SupportSystemMain_SupportSystemStatuses" FromRole="SupportSystemStatuses" ToRole="SupportSystemMain" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemComments_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="SupportSystemComments" Type="Self.SupportSystemComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemComments">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemCategory">
+    <End Role="SupportSystemCategory" Type="Self.SupportSystemCategory" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdKategorija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemPriority">
+    <End Role="SupportSystemPriority" Type="Self.SupportSystemPriority" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemPriority">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdPriority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemSection">
+    <End Role="SupportSystemSection" Type="Self.SupportSystemSection" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemSection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdSeverity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemSeverity">
+    <End Role="SupportSystemSeverity" Type="Self.SupportSystemSeverity" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemSeverity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdSeverity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemStatuses">
+    <End Role="SupportSystemStatuses" Type="Self.SupportSystemStatuses" Multiplicity="0..1" />
+    <End Role="SupportSystemMain" Type="Self.SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemStatuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="SupportSystemPraksaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="SupportSystemCategory" EntityType="Self.SupportSystemCategory" />
+    <EntitySet Name="SupportSystemComments" EntityType="Self.SupportSystemComments" />
+    <EntitySet Name="SupportSystemMain" EntityType="Self.SupportSystemMain" />
+    <EntitySet Name="SupportSystemPriority" EntityType="Self.SupportSystemPriority" />
+    <EntitySet Name="SupportSystemSection" EntityType="Self.SupportSystemSection" />
+    <EntitySet Name="SupportSystemSeverity" EntityType="Self.SupportSystemSeverity" />
+    <EntitySet Name="SupportSystemStatuses" EntityType="Self.SupportSystemStatuses" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemComments_AspNetUsers" Association="Self.FK_SupportSystemComments_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="SupportSystemComments" EntitySet="SupportSystemComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_AspNetUsers" Association="Self.FK_SupportSystemMain_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemCategory" Association="Self.FK_SupportSystemMain_SupportSystemCategory">
+      <End Role="SupportSystemCategory" EntitySet="SupportSystemCategory" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemPriority" Association="Self.FK_SupportSystemMain_SupportSystemPriority">
+      <End Role="SupportSystemPriority" EntitySet="SupportSystemPriority" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemSection" Association="Self.FK_SupportSystemMain_SupportSystemSection">
+      <End Role="SupportSystemSection" EntitySet="SupportSystemSection" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemSeverity" Association="Self.FK_SupportSystemMain_SupportSystemSeverity">
+      <End Role="SupportSystemSeverity" EntitySet="SupportSystemSeverity" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemStatuses" Association="Self.FK_SupportSystemMain_SupportSystemStatuses">
+      <End Role="SupportSystemStatuses" EntitySet="SupportSystemStatuses" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemComments_SupportSystemMain" Association="SupportSystemPraksaModel.FK_SupportSystemComments_SupportSystemMain">
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+      <End Role="SupportSystemComments" EntitySet="SupportSystemComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SupportSystemMain_SupportSystemSection1" Association="SupportSystemPraksaModel.FK_SupportSystemMain_SupportSystemSection1">
+      <End Role="SupportSystemSection" EntitySet="SupportSystemSection" />
+      <End Role="SupportSystemMain" EntitySet="SupportSystemMain" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_SupportSystemComments_SupportSystemMain">
+    <End Type="SupportSystemPraksaModel.SupportSystemMain" Role="SupportSystemMain" Multiplicity="0..1" />
+    <End Type="SupportSystemPraksaModel.SupportSystemComments" Role="SupportSystemComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemMain">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemComments">
+        <PropertyRef Name="IdMain" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SupportSystemMain_SupportSystemSection1">
+    <End Type="SupportSystemPraksaModel.SupportSystemSection" Role="SupportSystemSection" Multiplicity="0..1" />
+    <End Type="SupportSystemPraksaModel.SupportSystemMain" Role="SupportSystemMain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupportSystemSection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SupportSystemMain">
+        <PropertyRef Name="IdSystemSection" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
