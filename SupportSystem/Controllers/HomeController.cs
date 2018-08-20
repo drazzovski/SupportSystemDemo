@@ -14,8 +14,7 @@ namespace SupportSystem.Controllers
         private SupportSystemPraksaEntities db;
 
         public ActionResult Index()
-        {
-            
+        {           
 
             return View();
         }
@@ -435,7 +434,11 @@ namespace SupportSystem.Controllers
             return Json("ok", JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Game()
+        {
 
+            return View();
+        }
 
         //protected override void Dispose(bool disposing)
         //{

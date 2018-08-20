@@ -5,9 +5,24 @@
         CreateNewUser();
     }); 
 
+    //$("#btnDeletedUsers").on("click", function () {
+    //    PopuniTabelu(false);
+    //}); 
+
+
+    var toggle = true;
     $("#btnDeletedUsers").on("click", function () {
-        PopuniTabelu(false);
-    }); 
+        if (toggle) {
+            PopuniTabelu(false);
+            toggle = false;
+            $("#btnDeletedUsers").text('Show All Users');
+        } else {
+            PopuniTabelu(true);
+            toggle = true;
+            $("#btnDeletedUsers").text('Show Deleted');
+        }
+    });  
+
 });
 
 function PopuniTabelu(Main) {

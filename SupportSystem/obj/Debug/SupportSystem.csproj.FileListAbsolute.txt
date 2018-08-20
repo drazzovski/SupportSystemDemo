@@ -120,7 +120,6 @@ C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\bin\Microsoft.AI.Depen
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\bin\Microsoft.AI.Web.xml
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.csprojAssemblyReference.cache
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.Migrations.InitialCreate.resources
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.Migrations.addNewFields.resources
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.Migrations.update0307.resources
@@ -129,3 +128,4 @@ C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSyste
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.csproj.CopyComplete
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.dll
 C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.pdb
+C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\obj\Debug\SupportSystem.csprojAssemblyReference.cache

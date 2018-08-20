@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.CreatedOn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AccceptedOn)
+            @Html.DisplayNameFor(model => model.AcceptedOn)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DueOn)
@@ -44,9 +44,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SupportSystemCategory.CategoryName)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.SupportSystemComments.Comment)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.SupportSystemPriority.PriorityName)
         </th>
@@ -74,7 +74,7 @@
             @Html.DisplayFor(modelItem => item.CreatedOn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AccceptedOn)
+            @Html.DisplayFor(modelItem => item.AcceptedOn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DueOn)
@@ -97,9 +97,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.SupportSystemCategory.CategoryName)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.SupportSystemComments.Comment)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.SupportSystemPriority.PriorityName)
         </td>

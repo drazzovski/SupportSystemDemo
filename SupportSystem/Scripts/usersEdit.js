@@ -42,6 +42,8 @@ function PopulateUsersEdit(id) {
                 $("#email").val(response.Email);
                 $("#activity").val(`${response.isActive}`).trigger("change");
 
+                $("#sidebar-wrapper").height($("#page-content-wrapper").height());
+
             } else {
                 alert("Error");
             }

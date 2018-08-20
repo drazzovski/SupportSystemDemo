@@ -29,8 +29,7 @@ namespace SupportSystem.Models.DAL
 
         public string Status { get; set; }
         public string Kategorija { get; set; }
-        public string Severity { get; set; }
-        //public string Comment { get; set; }
+        public string Severity { get; set; } 
         public string User { get; set; }
         public string strCreatedOn { get; set; }
         public string strAcceptedOn { get; set; }

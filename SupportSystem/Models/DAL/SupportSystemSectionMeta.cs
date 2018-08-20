@@ -16,7 +16,10 @@ namespace SupportSystem.Models.DAL
     public class SupportSystemSectionMeta
     {
         public Guid Id { get; set; }
-        public string GuidId { get; set; }
+        public string GuidId { get; set; } 
+
+        [Required]
+        [MinLength(3)]
         public string Name { get; set; }
         public string Description { get; set; }
         public bool? isDeleted { get; set; }

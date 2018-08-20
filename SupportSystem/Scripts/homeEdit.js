@@ -27,10 +27,7 @@
         Validacije();
         SaveEditedSuggestionWithComments();
     });
-
-
-
-
+     
 });
 
 var userName;
@@ -83,6 +80,7 @@ function PopulateHomeEdit(id){
                     displayFormat: "dd.MM.yyyy"
                 });
             
+                $("#sidebar-wrapper").height($("#page-content-wrapper").height());
 
             } else {
                 alert("Error");
@@ -136,7 +134,7 @@ function SaveEditedSuggestionWithComments() {
                     toastr["success"]("Suggestion is edited!");
 
                     if (commentsForEmial !== "") {
-                        SendCommentsMail("arandjic@gmail.com", "New Comments from Edited Suggestion.", commentsForEmial);
+                        SendCommentsMail("arandjic@gmail.com", "New Comments from Edited Suggestion.", emailHtml);
                         commentsForEmial = "";
                     }                     // <----------------------------------------------- send email
                     ClearTempComments();
