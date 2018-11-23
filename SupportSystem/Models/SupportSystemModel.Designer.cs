@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Axelyos\source\repos\SupportSystem\SupportSystem\Models\SupportSystemModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\820\Desktop\SupportSystem\SupportSystemDemo\SupportSystem\Models\SupportSystemModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemSection" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemSeverity" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
         <EntityTypeShape EntityType="SupportSystemPraksaModel.SupportSystemStatuses" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SupportSystemPraksaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="SupportSystemPraksaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="SupportSystemPraksaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="SupportSystemPraksaModel.FK_SupportSystemComments_AspNetUsers" ManuallyRouted="false" />

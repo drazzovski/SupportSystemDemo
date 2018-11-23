@@ -36,6 +36,5 @@ namespace SupportSystem.Models
         public virtual DbSet<SupportSystemSection> SupportSystemSection { get; set; }
         public virtual DbSet<SupportSystemSeverity> SupportSystemSeverity { get; set; }
         public virtual DbSet<SupportSystemStatuses> SupportSystemStatuses { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

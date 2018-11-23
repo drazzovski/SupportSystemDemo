@@ -293,13 +293,14 @@
     <Compile Include="Models\SupportSystemStatuses.cs">
       <DependentUpon>SupportSystemModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>SupportSystemModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SupportSystemPraksa.mdf" />
+    <Content Include="App_Data\SupportSystemPraksa_log.ldf">
+      <DependentUpon>SupportSystemPraksa.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -819,7 +820,9 @@
     <Content Include="Scripts\usersEdit.js" />
     <Content Include="Scripts\usersHome.js" />
     <Content Include="Scripts\usersValidacije.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -865,9 +868,7 @@
     <Content Include="Views\SupportSystemMains\View.cshtml" />
     <Content Include="Views\Home\Game.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -882,6 +883,15 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\DX\ts\dx.all.d.ts" />
+    <TypeScriptCompile Include="Content\DX\ts\jquery.d.ts" />
+    <TypeScriptCompile Include="Content\DX\ts\knockout.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Migrations\201806250725464_InitialCreate.resx">
       <DependentUpon>201806250725464_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
@@ -891,15 +901,6 @@
     <EmbeddedResource Include="Migrations\201807030814293_update0307.resx">
       <DependentUpon>201807030814293_update0307.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Content\DX\ts\dx.all.d.ts" />
-    <TypeScriptCompile Include="Content\DX\ts\jquery.d.ts" />
-    <TypeScriptCompile Include="Content\DX\ts\knockout.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
