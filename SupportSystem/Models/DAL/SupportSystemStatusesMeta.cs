@@ -17,7 +17,12 @@ namespace SupportSystem.Models.DAL
     {
         public string GuidId { get; set; }
         public Guid Id { get; set; }
+
+        [Required]
+        [MinLength(3)]
         public string StatusName { get; set; }
+
         public string Description { get; set; }
+        public bool? isDeleted { get; set; }
     }
 }

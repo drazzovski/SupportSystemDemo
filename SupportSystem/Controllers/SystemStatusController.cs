@@ -37,20 +37,21 @@ namespace SupportSystem.Controllers
             var jsonResult = mainBll.GetDeletedStatusList();
             return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
-        // GET: SystemStatus/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
-            if (supportSystemStatuses == null)
-            {
-                return HttpNotFound();
-            }
-            return View(supportSystemStatuses);
-        }
+
+        //// GET: SystemStatus/Details/5
+        //public ActionResult Details(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
+        //    if (supportSystemStatuses == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(supportSystemStatuses);
+        //}
 
         // GET: SystemStatus/Create
         public ActionResult Create()
@@ -77,80 +78,104 @@ namespace SupportSystem.Controllers
             return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: SystemStatus/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StatusName")] SupportSystemStatuses supportSystemStatuses)
+        public JsonResult EditSectionRow(Models.DAL.SupportSystemStatusesMeta obj)
         {
-            if (ModelState.IsValid)
+
+            using (db = new SupportSystemPraksaEntities())
             {
-                supportSystemStatuses.Id = Guid.NewGuid();
-                db.SupportSystemStatuses.Add(supportSystemStatuses);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var rowMain = db.SupportSystemStatuses.FirstOrDefault(x => x.Id == obj.Id);
+                //obj.Id = null;
+
+
+                if (rowMain != null)
+                {
+                    StaticBLL.CopyNonNullProperties(obj, rowMain);
+
+                    db.Entry(rowMain).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
 
-            return View(supportSystemStatuses);
+            var jsonResult = "";
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: SystemStatus/Edit/5
-        public ActionResult Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
-            if (supportSystemStatuses == null)
-            {
-                return HttpNotFound();
-            }
-            return View(supportSystemStatuses);
-        }
+        //// POST: SystemStatus/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,StatusName")] SupportSystemStatuses supportSystemStatuses)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        supportSystemStatuses.Id = Guid.NewGuid();
+        //        db.SupportSystemStatuses.Add(supportSystemStatuses);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-        // POST: SystemStatus/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StatusName")] SupportSystemStatuses supportSystemStatuses)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(supportSystemStatuses).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(supportSystemStatuses);
-        }
+        //    return View(supportSystemStatuses);
+        //}
 
-        // GET: SystemStatus/Delete/5
-        public ActionResult Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
-            if (supportSystemStatuses == null)
-            {
-                return HttpNotFound();
-            }
-            return View(supportSystemStatuses);
-        }
+        //// GET: SystemStatus/Edit/5
+        //public ActionResult Edit(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
+        //    if (supportSystemStatuses == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(supportSystemStatuses);
+        //}
 
-        // POST: SystemStatus/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
-        {
-            SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
-            db.SupportSystemStatuses.Remove(supportSystemStatuses);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: SystemStatus/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,StatusName")] SupportSystemStatuses supportSystemStatuses)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(supportSystemStatuses).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(supportSystemStatuses);
+        //}
+
+        //// GET: SystemStatus/Delete/5
+        //public ActionResult Delete(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
+        //    if (supportSystemStatuses == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(supportSystemStatuses);
+        //}
+
+        //// POST: SystemStatus/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(Guid id)
+        //{
+        //    SupportSystemStatuses supportSystemStatuses = db.SupportSystemStatuses.Find(id);
+        //    db.SupportSystemStatuses.Remove(supportSystemStatuses);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

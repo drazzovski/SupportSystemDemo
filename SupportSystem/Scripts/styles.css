@@ -1,4 +1,22 @@
-﻿.login-center {
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.login-center {
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -100,12 +118,13 @@ div[name = 'cbox'] {
 }
 
 .navbar-right {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
-/*#loginbar {
-    padding: 8px;
-}*/
+#loginBar li {
+    width: 100%;
+    text-align: center;
+}
 
 .username {
     border-radius: 10px;
@@ -119,7 +138,6 @@ div[name = 'cbox'] {
     box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
     padding: 8px;
     margin-top: 8px;
-    margin-left: 25px;
     margin-bottom: 8px;
 }
 
@@ -189,3 +207,55 @@ div[name = 'cbox'] {
     margin-right: 20px;
 }
 
+.gameCard {
+    margin: 15px 0;
+}
+
+.insideCard1, .insideCard2, .insideCard3 {
+    border-radius: 25px;
+    text-align: center;
+    margin: 0 15px;
+    padding: 25px;
+    background-color: gainsboro;
+}
+
+.insideCard1:hover, .insideCard2:hover, .insideCard3:hover {
+    background-color: rgba(39, 136, 206, 0.7);
+}
+
+.gameh4 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+#gameBtn {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    width: 25%;
+    font-size: 1.1em;
+}
+
+.insideCard1 > span {
+    border-radius: 10px;
+    font-size: 1.7em;
+    padding: 10px;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+.insideCard2 > span {
+    border-radius: 10px;
+    font-size: 1.7em;
+    padding: 10px;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+.insideCard3 > span {
+    border-radius: 10px;
+    font-size: 1.7em;
+    padding: 10px;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}

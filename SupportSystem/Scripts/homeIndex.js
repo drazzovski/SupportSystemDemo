@@ -180,6 +180,7 @@ function PopuniTabelu(main) {
                     if (data) {
                         IdMain = data.Id;
                         PrikaziKomentare(data.Id, true);
+                       
                     }
                 },
                 //ON EDIT -------> SAVE <------------------------------------------------------------------------

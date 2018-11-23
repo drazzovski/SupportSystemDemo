@@ -13,7 +13,7 @@ namespace SupportSystem.Models.BLL
 
         public static EditMode emode { get; set; }
 
-        //lastuUrl in custom auth (line: 46)
+        //lastuUrl in custom auth (line: 42)
         public static string lastUrl;
 
         public enum EditMode

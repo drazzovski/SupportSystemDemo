@@ -11,17 +11,6 @@ namespace SupportSystem.Models.BLL
     {
         private SupportSystemPraksaEntities db;
 
-        //public static string UserName { get; set; }        
-        //public static Guid UserId { get; set; }
-
-        //public static void GetUserId(string userName)
-        //{
-        //    using (db = new SupportSystemPraksaEntities())
-        //    {
-        //        UserId = db.AspNetUsers.Where(x => x.UserName == userName).Select(x => x.Id).FirstOrDefault();
-        //    }                
-        //}
-
         public List<SupportSystemMainMeta> GetMainList() 
         {
 
@@ -267,7 +256,8 @@ namespace SupportSystem.Models.BLL
                     {
                         Id = item.Id,
                         Name = item.Name,
-                        Description = item.Description
+                        Description = item.Description,
+                        isDeleted = item.isDeleted
                     };
 
 
@@ -292,7 +282,8 @@ namespace SupportSystem.Models.BLL
                     {
                         Id = item.Id,
                         Name = item.Name,
-                        Description = item.Description
+                        Description = item.Description,
+                        isDeleted = item.isDeleted
                     };
 
 
@@ -317,7 +308,8 @@ namespace SupportSystem.Models.BLL
                     {
                         Id = item.Id,
                         StatusName = item.StatusName,
-                        Description = item.Description
+                        Description = item.Description,
+                        isDeleted = item.isDeleted
                     };
 
 
@@ -342,7 +334,8 @@ namespace SupportSystem.Models.BLL
                     {
                         Id = item.Id,
                         StatusName = item.StatusName,
-                        Description = item.Description
+                        Description = item.Description,
+                        isDeleted = item.isDeleted
                     };
 
 
@@ -353,18 +346,7 @@ namespace SupportSystem.Models.BLL
             }
           
         }
-
-
-        ////Temporary lista komentara
-        //public static List<SupportSystemComments> komentari = new List<SupportSystemComments>();
-
-        ////Clear list 
-        //public static void ClearTempComments()
-        //{
-        //    komentari.Clear();
-        //}
-
-
+        
         public List<SupportSystemCommentsMeta> PokupiKomentare(Guid id)
         {
             using (db = new SupportSystemPraksaEntities())
@@ -410,84 +392,7 @@ namespace SupportSystem.Models.BLL
             }
            
         }
-
-
-
-        //public static void AddAfterMainComment<T>(this List<T> list, Func<T, Boolean> condition, T commentToAdd)
-        //{
-        //    foreach (var item in list.Select((o, i) => new { Value = o, Index = i }).Where(p => condition(p.Value)).OrderBy(p => p.Index))
-        //    {
-        //        if (item.Index + 1 == list.Count) list.Add(commentToAdd);
-        //        else list.Insert(item.Index + 1, commentToAdd);
-        //    }
-        //}
-
-
-        //public static void CopyNonNullProperties(object source, object target) // a b
-        //{
-
-        //    Type typeB = target.GetType();
-        //    foreach (PropertyInfo property in source.GetType().GetProperties())
-        //    {
-        //        if (!property.CanRead || (property.GetIndexParameters().Length > 0))
-        //            continue;
-
-        //        PropertyInfo other = typeB.GetProperty(property.Name);
-
-        //        var newProp = property.GetValue(source, null);
-
-        //        if ((other != null) && (other.CanWrite) && newProp != null)
-        //            other.SetValue(target, newProp, null);
-        //    }
-        //}
-
-
-        //public enum EditMode
-        //{
-        //    Disabled,
-        //    Edit
-        //}
-
-        //public static EditMode emode { get; set; }
-
-        //public static string lastUrl;
-
-        //public class CustomAuthorize : AuthorizeAttribute
-        //{         
-
-        //    public CustomAuthorize(params EditMode[] roles)
-        //    {
-
-        //    }            
-
-        //    protected override bool AuthorizeCore(HttpContextBase httpContext)
-        //    {
-        //        var isAuthorized = base.AuthorizeCore(httpContext);
-
-        //        if (!isAuthorized)
-        //        {
-        //            return false;
-        //        }   
-
-        //        if (lastUrl != httpContext.Request.Path)
-        //        {
-
-        //            emode = EditMode.Disabled;
-
-        //        }                
-
-        //        if (emode == EditMode.Edit )
-        //        {                 
-        //            return true;
-
-        //        } else
-        //        {
-        //             httpContext.Response.Redirect("/Home/DisabledEdit");
-        //             return false;
-        //        }
-        //    }            
-        //}
-
+        
         //public class RefreshDetectFilter : ActionFilterAttribute, IActionFilter
         //{
         //    public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -522,6 +427,5 @@ namespace SupportSystem.Models.BLL
                 client.Disconnect(false);
             }
         }
-
     }
 }

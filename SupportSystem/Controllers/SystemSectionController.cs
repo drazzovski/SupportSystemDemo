@@ -78,82 +78,104 @@ namespace SupportSystem.Controllers
             return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
 
-
-
-        // POST: SystemSection/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description")] SupportSystemSection supportSystemSection)
+        public JsonResult EditSectionRow(Models.DAL.SupportSystemSectionMeta obj)
         {
-            if (ModelState.IsValid)
+
+            using (db = new SupportSystemPraksaEntities())
             {
-                supportSystemSection.Id = Guid.NewGuid();
-                db.SupportSystemSection.Add(supportSystemSection);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var rowMain = db.SupportSystemSection.FirstOrDefault(x => x.Id == obj.Id);
+                //obj.Id = null;
+
+
+                if (rowMain != null)
+                {
+                    StaticBLL.CopyNonNullProperties(obj, rowMain);
+
+                    db.Entry(rowMain).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
 
-            return View(supportSystemSection);
+            var jsonResult = "";
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: SystemSection/Edit/5
-        public ActionResult Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
-            if (supportSystemSection == null)
-            {
-                return HttpNotFound();
-            }
-            return View(supportSystemSection);
-        }
+        //// POST: SystemSection/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Name,Description")] SupportSystemSection supportSystemSection)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        supportSystemSection.Id = Guid.NewGuid();
+        //        db.SupportSystemSection.Add(supportSystemSection);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-        // POST: SystemSection/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description")] SupportSystemSection supportSystemSection)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(supportSystemSection).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(supportSystemSection);
-        }
+        //    return View(supportSystemSection);
+        //}
 
-        // GET: SystemSection/Delete/5
-        public ActionResult Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
-            if (supportSystemSection == null)
-            {
-                return HttpNotFound();
-            }
-            return View(supportSystemSection);
-        }
+        //// GET: SystemSection/Edit/5
+        //public ActionResult Edit(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
+        //    if (supportSystemSection == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(supportSystemSection);
+        //}
 
-        // POST: SystemSection/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
-        {
-            SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
-            db.SupportSystemSection.Remove(supportSystemSection);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: SystemSection/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,Name,Description")] SupportSystemSection supportSystemSection)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(supportSystemSection).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(supportSystemSection);
+        //}
+
+        //// GET: SystemSection/Delete/5
+        //public ActionResult Delete(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
+        //    if (supportSystemSection == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(supportSystemSection);
+        //}
+
+        //// POST: SystemSection/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(Guid id)
+        //{
+        //    SupportSystemSection supportSystemSection = db.SupportSystemSection.Find(id);
+        //    db.SupportSystemSection.Remove(supportSystemSection);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
 
         protected override void Dispose(bool disposing)
         {

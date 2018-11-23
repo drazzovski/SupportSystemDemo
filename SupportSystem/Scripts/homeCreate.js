@@ -57,7 +57,8 @@
     $("#btnVal").on("click", function () {
         Validacije();
     });
-      
+
+    $("#sidebar-wrapper").height($("#page-content-wrapper").height());
 });
 
 function SaveSuggestionWithComments() {
@@ -116,7 +117,7 @@ function SaveSuggestionWithComments() {
                     //alert(response);
                     toastr.success("Suggestion is saved!");
                     if (commentsForEmial !== "") {
-                        SendCommentsMail("arandjic@gmail.com", "Comments from Created Suggestion.", commentsForEmial)
+                        SendCommentsMail("arandjic@gmail.com", "Comments from Created Suggestion.", emailHtml)
                         commentsForEmial = "";
                     }   //<--------------------------------------- send mail
                     ClearTempComments();

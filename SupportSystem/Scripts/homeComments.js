@@ -231,23 +231,7 @@ function AddCommentArea(replyOrNew, boxId) {
 }
 
 var commentsForEmial = "";
-var emailHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Email</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-  <center>
-    <div style="border:2px solid black; margin: 20px 10px; padding: 25px 0; border-radius:40px; border-color: rgba(19,6,160,0.8)">
-    <table width="70%">
-        ${commentsForEmial}
-    </table>
-    </div>    
-  </center>  
-</body>
-</html>`;
+var emailHtml = "";
 
 
 var dataid;
@@ -334,6 +318,25 @@ function SubmitNewComment(brBox, isReply) {
     }
 
 
+
+    emailHtml = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                     <html xmlns="http://www.w3.org/1999/xhtml">
+                 <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                    <title>Email</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                </head>
+                <body>
+                  <center>
+                    <div style="border:2px solid black; margin: 20px 10px; padding: 25px 0; border-radius:40px; border-color: rgba(19,6,160,0.8)">
+                    <table width="50%">
+                        ${commentsForEmial}
+                    </table>
+                    </div>    
+                  </center>  
+                </body>
+                </html>`;
+
 }
 
 
@@ -386,14 +389,19 @@ function PrikaziKomentare(idMain, indexPage) {
                                  </div>`);
                         brojKomentara++;
                     }
-
+             
                 });
+
+                if (indexPage) {
+                   $("#sidebar-wrapper").height($("#page-content-wrapper").height());
+                }
 
             }
 
         });
 
         checkIdMain = idMain
+
     }
 
 }
@@ -408,7 +416,7 @@ function SaveSigleComment(id) {
             if (response !== null) {
                 toastr["info"](`${response}`);
                 if (commentsForEmial !== "") {
-                    SendCommentsMail("arandjic@gmail.com", "New Comment from Index Page.", commentsForEmial)
+                    SendCommentsMail("arandjic@gmail.com", "New Comment from Index Page.", emailHtml)
                     commentsForEmial = "";
                 }   //<--------------------------------------- send mail
             }           

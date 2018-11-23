@@ -30,7 +30,9 @@
     $("#btnSaveUser").on("click", function () {
         SaveUser();
     });
-    
+
+    $("#sidebar-wrapper").height($("#page-content-wrapper").height());
+
 });
 
 var boolMatching;
